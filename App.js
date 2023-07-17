@@ -19,18 +19,10 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   const [page, setPage] = useState('History')
 
-  // Stack.navigationOptions = ({ navigation }) => {
-  //   let tabBarVisible = true;
-  //   if (page == 'Scanner') {
-  //     navigationOptions = { headerTransparent: true }
-  //   }
-  // }
-
-  // https://reactnavigation.org/docs/4.x/navigation-options-resolution/#:~:text=If%20we-,want%20to%20hide%20the%20tab%20bar,-when%20we%20navigate
-
   return (
     <NavigationContainer>
-      <SafeAreaView style={styles.viewport}>
+      <StatusBar style='dark'/>
+      {/* <SafeAreaView style={styles.viewport}> */}
         {page !== 'Scanner' ?
         <Header page={page} />
         :
@@ -42,7 +34,6 @@ export default function App() {
             <Stack.Screen
               name="History"
               component={History}
-              options={{title: 'Welcome'}}
             />
             <Stack.Screen name="Scanner" component={Scanner} />
             <Stack.Screen name="Overview" component={Overview} />
@@ -55,7 +46,7 @@ export default function App() {
             setPage(newPage)
           }}
         />
-      </SafeAreaView>
+      {/* </SafeAreaView> */}
     </NavigationContainer>
   );
 }

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, Pressable, Button, } from 'react-native'
+import { View, Text, StyleSheet, Image, Pressable, Button, Dimensions } from 'react-native'
 import React, { useState } from 'react'
 import { Ionicons, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
@@ -7,9 +7,12 @@ import { useNavigation, ParamListBase } from '@react-navigation/native';
 // Added type for useNavigation fix
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
+const { height: SCREEN_HEIGHT } = Dimensions.get('window')
+
 const Footer = ({handlePageChange}) => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>()
   const [currentPage, setCurrentPage] = useState('History')
+
 
   const navigateWithHeaderUpdate = (newPage: string) => {
     navigation.navigate(newPage)
@@ -61,15 +64,28 @@ const Footer = ({handlePageChange}) => {
 }
 
 const styles = StyleSheet.create({
+  // footer: {
+  //   flex: 1.45,
+  //   // backgroundColor: 'steelblue',
+  //   display: 'flex',
+  //   flexDirection: 'row',
+  //   alignItems: 'flex-start',
+  //   justifyContent: 'space-around',
+  //   paddingLeft: 14,
+  //   paddingRight: 14,
+  //   paddingTop: 5,
+  // },
   footer: {
-    flex: 1,
-    // backgroundColor: 'steelblue',
+    // flex: 1.45,
+    bottom: 34,
+    backgroundColor: 'white',
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-around',
     paddingLeft: 14,
     paddingRight: 14,
+    paddingTop: 5,
   },
   iconBox: {
     // backgroundColor: 'maroon',

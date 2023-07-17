@@ -1,22 +1,28 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import React from 'react'
 
 const History = () => {
   return (
-    <View style={styles.historyScreen}>
-      <Text>History</Text>
-      <Text>History</Text>
-      <Text>History</Text>
-      <Text>History</Text>
-    </View>
+    // <SafeAreaView style={styles.viewport}>
+    //   <View style={styles.historyScreen}>
+    <View>
+        <Text>History</Text>
+        <Text>History</Text>
+        <Text>History</Text>
+        <Text>History</Text>
+     </View>
+    // </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  historyScreen: {
-    flex: 12,
-    backgroundColor: 'skyblue'
-  }
+  // viewport: {
+  //   flex: 1,
+  // },
+  // historyScreen: {
+  //   flex: 12,
+  //   backgroundColor: 'skyblue'
+  // },
 })
 
 export default History

@@ -1,8 +1,9 @@
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import ProductInfo from '../components/ProductInfo';
 import ScannerHeader from './ScannerHeader';
+import { StatusBar } from 'expo-status-bar';
 
 const Scanner = () => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -25,21 +26,25 @@ const Scanner = () => {
   };
 
   return (
-    <BarCodeScanner
-    style={[StyleSheet.absoluteFillObject, styles.scanArea]}
-    onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}  
-    >
-    {/* <ScannerHeader /> */}
-        <View style={styles.scanAreaBorder}>
-          <Text style={styles.screenSubtext}>Barcode Scan</Text>
-        </View>
-        {scanned && <ProductInfo productInfo={productInfo}/>}
-        {/* {scanned && <Text>Heyoo</Text>} */}
+    <SafeAreaView style={styles.viewport}>
+      <StatusBar style='light'/>
+      <BarCodeScanner
+      style={[StyleSheet.absoluteFillObject, styles.scanArea]}
+      onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}  
+      >
+          <View style={styles.scanAreaBorder}>
+            <Text style={styles.screenSubtext}>Barcode Scan</Text>
+          </View>
+          {scanned && <ProductInfo productInfo={productInfo}/>}
       </BarCodeScanner>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
+    viewport: {
+    flex: 1,
+  },
   scanArea: {
     ...StyleSheet.absoluteFillObject,
     display: 'flex',
