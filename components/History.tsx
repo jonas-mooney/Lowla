@@ -1,17 +1,14 @@
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native'
 import React from 'react'
+import HistoryItem from './HistoryItem'
 
 const History = () => {
   return (
-    // <SafeAreaView style={styles.viewport}>
-    //   <View style={styles.historyScreen}>
-    <View>
-        <Text>History</Text>
-        <Text>History</Text>
-        <Text>History</Text>
-        <Text>History</Text>
-     </View>
-    // </SafeAreaView>
+    <ScrollView>
+      <HistoryItem />
+      <HistoryItem />
+      <HistoryItem />
+    </ScrollView>
   )
 }
 

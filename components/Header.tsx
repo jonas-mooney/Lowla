@@ -9,10 +9,10 @@ const Header = ({ page }: { page: string }) => {
         <View style={styles.header}>
           <Text style={styles.headerText}>Favorites</Text>
           <Text style={styles.title}>{page}</Text>
-          <Text style={styles.icons}>
+          <View style={styles.icons}>
             <Ionicons name="trash-outline" size={26} color="#9B5DE5" />
             <Ionicons name="information-circle-outline" size={26} color="#9B5DE5" />
-          </Text>
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -58,8 +58,9 @@ const styles = StyleSheet.create({
   icons: {
     flex: 1,
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'aliceblue',
+    // backgroundColor: 'aliceblue',
     // textAlign: 'right',
   }
 })
