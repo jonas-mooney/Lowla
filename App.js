@@ -11,6 +11,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import InfoModal from './components/Info';
 import ScannerHeader from './components/ScannerHeader';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 // const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator();
@@ -21,33 +22,32 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <StatusBar style='dark'/>
-      {/* <SafeAreaView style={styles.viewport}> */}
-        {page !== 'Scanner' ?
-        <Header page={page} />
-        :
-        <></>
-        }
+        <StatusBar style='dark'/>
+        {/* <SafeAreaView style={styles.viewport}> */}
+          {page !== 'Scanner' ?
+          <Header page={page} />
+          :
+          <></>
+          }
+          <GestureHandlerRootView style={styles.screenContent}>
+            <Stack.Navigator screenOptions={{ headerShown: false, animation: 'none' }}>
+              <Stack.Screen
+                name="History"
+                component={History}
+              />
+              <Stack.Screen name="Scanner" component={Scanner} />
+              <Stack.Screen name="Overview" component={Overview} />
+            </Stack.Navigator>
+          </GestureHandlerRootView>
 
-        <View style={styles.screenContent}>
-          <Stack.Navigator screenOptions={{ headerShown: false, animation: 'none' }}>
-            <Stack.Screen
-              name="History"
-              component={History}
+
+          <Footer 
+            handlePageChange={(newPage) => {
+              setPage(newPage)
+            }}
             />
-            <Stack.Screen name="Scanner" component={Scanner} />
-            <Stack.Screen name="Overview" component={Overview} />
-          </Stack.Navigator>
-        </View>
-
-
-        <Footer 
-          handlePageChange={(newPage) => {
-            setPage(newPage)
-          }}
-        />
-      {/* </SafeAreaView> */}
-    </NavigationContainer>
+        {/* </SafeAreaView> */}
+      </NavigationContainer>
   );
 }
 
@@ -62,3 +62,4 @@ const styles = StyleSheet.create({
 });
 
 // #9B5DE5 Amethyst
+// watchman watch-del-all

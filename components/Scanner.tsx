@@ -22,6 +22,7 @@ const Scanner = () => {
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
     setProductInfo(data)
+    console.log('scanned')
     // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
   };
 
@@ -35,7 +36,7 @@ const Scanner = () => {
           <View style={styles.scanAreaBorder}>
             <Text style={styles.screenSubtext}>Barcode Scan</Text>
           </View>
-          {scanned && <ProductInfo productInfo={productInfo}/>}
+          {scanned && <ProductInfo productInfo={productInfo} setScanned={setScanned}/>}
       </BarCodeScanner>
     </SafeAreaView>
   )
