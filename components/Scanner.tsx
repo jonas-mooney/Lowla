@@ -19,24 +19,29 @@ const Scanner = () => {
     getBarCodeScannerPermissions();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }) => {
-    setScanned(true);
+  const handleBarCodeScanned = ({ data }) => {
+    setScanned(true)
     setProductInfo(data)
     console.log('scanned')
-    // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
   };
+
+  const handleProductInfoDismiss = () => {
+    'worklet';
+    console.log('Dismissed from scanner')
+    setScanned(false)
+  }
 
   return (
     <SafeAreaView style={styles.viewport}>
       <StatusBar style='light'/>
       <BarCodeScanner
       style={[StyleSheet.absoluteFillObject, styles.scanArea]}
-      onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}  
+      onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
       >
           <View style={styles.scanAreaBorder}>
             <Text style={styles.screenSubtext}>Barcode Scan</Text>
           </View>
-          {scanned && <ProductInfo productInfo={productInfo} setScanned={setScanned}/>}
+          {scanned && <ProductInfo productInfo={productInfo} handleProductInfoDismiss={handleProductInfoDismiss}/>}
       </BarCodeScanner>
     </SafeAreaView>
   )
