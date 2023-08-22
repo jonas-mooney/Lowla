@@ -4,6 +4,7 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import ProductInfo from '../components/ProductInfo';
 import ScannerHeader from './ScannerHeader';
 import { StatusBar } from 'expo-status-bar';
+import { runOnJS } from 'react-native-reanimated';
 
 const Scanner = () => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -27,8 +28,7 @@ const Scanner = () => {
 
   const handleProductInfoDismiss = () => {
     'worklet';
-    console.log('Dismissed from scanner')
-    setScanned(false)
+    runOnJS(setScanned)(false)
   }
 
   return (

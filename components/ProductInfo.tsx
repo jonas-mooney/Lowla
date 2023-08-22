@@ -9,11 +9,6 @@ const ProductInfo = ({productInfo, handleProductInfoDismiss}) => {
   const translateY = useSharedValue(0)
   const context = useSharedValue({ y: 0 })
 
-  // const test = () => {
-  //   'worklet';
-  //   console.log('Dismiss')
-  // }
-
   const gesture = Gesture.Pan()
   .onStart(() => {
     context.value = { y: translateY.value }
@@ -24,8 +19,6 @@ const ProductInfo = ({productInfo, handleProductInfoDismiss}) => {
   })
   .onEnd(() => {
     if (translateY.value > -SCREEN_HEIGHT / 3) {
-      // runOnJS(test)
-      // test()
       handleProductInfoDismiss()
       translateY.value = withSpring(0, {damping: 10, mass: 1})
     } else if (translateY.value > -SCREEN_HEIGHT / 1.5) {
