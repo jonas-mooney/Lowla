@@ -2,13 +2,14 @@ import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-const HistoryItem = () => {
+const HistoryItem = ({productImage}) => {
 
   return (
     <View style={styles.historyBox}>
       <View style={styles.imageBox}>
-        <Image source={require('../assets/wheaties.png')} style={styles.productImage}/>
+        <Image source={productImage} style={styles.productImage}/>
       </View>
       <View style={styles.historyDetails}>
         <View style={styles.detailData}>
