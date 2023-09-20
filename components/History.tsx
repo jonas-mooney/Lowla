@@ -4,7 +4,7 @@ import HistoryItem from './HistoryItem'
 
 const itemArray = [
   {
-    image: '../assets/wheaties.png',
+    image: "../assets/wheaties.png",
     title: "Honey Bunches of Oats",
     brand: "General Mills",
     rating: "Good",
@@ -25,7 +25,7 @@ const History = () => {
   return (
     <ScrollView>
       {itemArray.map(({image, title, brand, rating, date}) => (
-        <HistoryItem key={title} productImage={image} />
+        <HistoryItem key={title} productImage={image} brandName={brand} />
       ))}
     </ScrollView>
   )

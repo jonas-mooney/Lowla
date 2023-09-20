@@ -4,17 +4,17 @@ import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-const HistoryItem = ({productImage}) => {
+const HistoryItem = ({productImage, brandName}) => {
 
   return (
     <View style={styles.historyBox}>
       <View style={styles.imageBox}>
-        <Image source={productImage} style={styles.productImage}/>
+        <Image source={require("../assets/wheaties.png")} style={styles.productImage}/>
       </View>
       <View style={styles.historyDetails}>
         <View style={styles.detailData}>
           <Text style={{ fontSize: 17, fontWeight: '500' }}>Honey bunches of oats</Text>
-          <Text style={[styles.grey, { color: '#8A8B8D' }]}>General Mills</Text>
+          <Text style={[styles.grey, { color: '#8A8B8D' }]}>{brandName}</Text>
         </View>
         <View style={styles.detailData}>
           <Text style={ styles.grey }><View style={ styles.ratingCircle } /> Good</Text>
